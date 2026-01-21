@@ -1,3 +1,5 @@
+/.metadata/
+
 # IDE related files and folders (IntelliJ, VS Code, Eclipse, etc.)
 .idea/
 .vscode/
