@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Users;
 import com.example.demo.services.UsersService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/users")
@@ -21,5 +24,11 @@ public class UsersController {
 	public List<Users> getAll(){
 		return usersservice.getAllUsers();
 	}
+	@PostMapping("/register")
+	public String register(@RequestBody Users user) {
+		usersservice.register(user);
+		return "Registered Sucessfully";
+	}
+	
 	
 }
