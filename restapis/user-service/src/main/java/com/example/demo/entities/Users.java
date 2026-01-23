@@ -20,7 +20,7 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int user_id;
+	Integer user_id;
 	String user_name;
 	String password;
 	String email;
@@ -31,7 +31,7 @@ public class Users {
 	String last_name;
 	String aadhar;
 	String aadhar_img_path;
-	int role_id;
+	Integer role_id;
 	
 	
 	
