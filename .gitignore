@@ -53,3 +53,14 @@ yarn-error.log*
 # Dockerfile*.task.data
 # .dockerignore
 # .docker/
+
+# Visual Studio
+.vs/
+
+# Build folders
+bin/
+obj/
+
+# User files
+*.user
+*.suo
