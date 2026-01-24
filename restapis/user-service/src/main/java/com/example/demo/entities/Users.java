@@ -20,18 +20,18 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int user_id;
-	String user_name;
-	String password;
-	String email;
-	String contact_no;
-	String permanent_address;
-	String current_address;
-	String first_name;
-	String last_name;
-	String aadhar;
-	String aadhar_img_path;
-	int role_id;
+	private Integer user_id;
+	private String user_name;
+	private String password;
+	private String email;
+	private String contact_no;
+	private String permanent_address;
+	private String current_address;
+	private String first_name;
+	private String last_name;
+	private String aadhar;
+	private String aadhar_img_path;
+	private Integer role_id;
 	
 	
 	
