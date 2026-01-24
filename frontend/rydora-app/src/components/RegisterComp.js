@@ -35,7 +35,7 @@ const RegisterComp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/users/register", {
+    fetch("http://localhost:8081/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
