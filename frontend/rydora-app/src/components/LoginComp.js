@@ -1,28 +1,20 @@
-// import React from 'react'
 
-// const LoginComp = () => {
-//   return (
-//     <div>LoginComp</div>
-//   )
-// }
-
-// export default LoginComp
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 const LoginComp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch("http://localhost:8081/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,6 +27,7 @@ const LoginComp = () => {
       }
 
       const data = await response.json();
+      console.log(data);
 
       // Example response:
       // { user_id, first_name, role_id, token }
@@ -42,12 +35,12 @@ const LoginComp = () => {
       localStorage.setItem("user", JSON.stringify(data));
 
       alert("Login successful ✅");
-      navigate("/UserComp");
+      // navigate("/UserComp");
 
       // redirect based on role
       if (data.role_id === 1) window.location.href = "/admin";
       else if (data.role_id === 3) window.location.href = "/driver";
-      else window.location.href = "/dashboard";
+      else window.location.href = "/UserComp";
 
     } catch (err) {
       setError(err.message);

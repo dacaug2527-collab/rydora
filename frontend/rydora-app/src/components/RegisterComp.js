@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// const RegisterComp = () => {
-//   return (
-//     <div>RegisterComp</div>
-//   )
-// }
-
-// export default RegisterComp
-
 import React, { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 
@@ -32,31 +22,25 @@ const RegisterComp = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    fetch("http://localhost:8081/users/register", {
+  try {
+    const res = await fetch("http://localhost:8081/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
-    })
-      .then(res => res.json())
-      .then(() => {
-        alert("User added successfully");
-        navigate("/login");
-        setFormData({
-          user_name: "",
-          password: "",
-          email: "",
-          contact_no: "",
-          first_name: "",
-          last_name: "",
-          aadhar: "",
-          role_id: 2
-        });
-      })
-      .catch(err => console.error(err));
-  };
+    });
+
+    if (!res.ok) throw new Error("Registration failed");
+
+    alert("User added successfully");
+    navigate("/login");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   return (
     <div>
