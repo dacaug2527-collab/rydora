@@ -1,4 +1,3 @@
 # rydora
 
-# deepak
->>>>>>> bdb23e13fac70ad00209d83911a416a4bec2c7fe
+# Rydora-A Driver Connect is a platform designed to efficiently connect users with drivers for their vehicles. The traditional manual system of requesting drivers often leads to delays, poor communication, and inefficient management, resulting in longer wait times and operational challenges. This project addresses these problems by providing a solution where users can request drivers in real time by viewing reviews, and admins can manage all requests, track driver availability, and assign drivers efficiently. By centralizing management and enabling instant updates, the system ensures faster response, better coordination, and improved overall service experience for both users and administrators.
