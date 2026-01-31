@@ -1,9 +1,11 @@
 package com.example.demo.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,18 +22,45 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer user_id;
-	private String user_name;
+	@Column(name = "user_id")
+	private Integer userId;
+	
+	@Column(name = "user_name")
+	private String userName;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "email")
 	private String email;
-	private String contact_no;
-	private String permanent_address;
-	private String current_address;
-	private String first_name;
-	private String last_name;
-	private String aadhar;
-	private String aadhar_img_path;
-	private Integer role_id;
+	
+	@Column(name = "contact_no")
+	private String contactNo;
+	
+	@Column(name = "permanent_address")
+	private String permanentAddress;
+	
+	@Column(name = "current_address")
+	private String currentAddress;
+	
+	@Column(name = "first_name")
+	private String firstName;
+	
+	@Column(name = "last_name")
+	private String lastName;
+	
+	@Column(name = "aadhar")
+	private String Aadhar;
+	
+	@Column(name = "aadhar_img_path")
+	private String aadharImgPath;
+	@Column(name = "role_id")
+	private Integer roleId;
+	
+	@OneToOne(mappedBy = "user")
+	private DriverInfo driverInfo;
+
+
 	
 	
 	

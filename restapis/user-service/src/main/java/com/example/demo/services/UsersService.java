@@ -46,17 +46,17 @@ public class UsersService {
         }
 
         // fields update
-        existingUser.setUser_name(updatedUser.getUser_name());
+        existingUser.setLastName(updatedUser.getLastName());
         existingUser.setPassword(updatedUser.getPassword());
         existingUser.setEmail(updatedUser.getEmail());
-        existingUser.setContact_no(updatedUser.getContact_no());
-        existingUser.setPermanent_address(updatedUser.getPermanent_address());
-        existingUser.setCurrent_address(updatedUser.getCurrent_address());
-        existingUser.setFirst_name(updatedUser.getFirst_name());
-        existingUser.setLast_name(updatedUser.getLast_name());
+        existingUser.setContactNo(updatedUser.getContactNo());
+        existingUser.setPermanentAddress(updatedUser.getPermanentAddress());
+        existingUser.setCurrentAddress(updatedUser.getCurrentAddress());
+        existingUser.setFirstName(updatedUser.getFirstName());
+        existingUser.setLastName(updatedUser.getLastName());
         existingUser.setAadhar(updatedUser.getAadhar());
-        existingUser.setAadhar_img_path(updatedUser.getAadhar_img_path());
-        existingUser.setRole_id(updatedUser.getRole_id());
+        existingUser.setAadhar(updatedUser.getAadhar());
+        existingUser.setRoleId(updatedUser.getRoleId());
 
         Users savedUser = usersRepository.save(existingUser);
 
@@ -69,7 +69,7 @@ public class UsersService {
 
     
     
-    
+   
     
     
 }
