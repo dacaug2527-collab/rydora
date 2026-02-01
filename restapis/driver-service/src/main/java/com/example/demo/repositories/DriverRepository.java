@@ -7,13 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entities.DriverInfo;
-import com.example.demo.entities.DriverStatus;
+
 
 @Repository
 public interface DriverRepository extends JpaRepository<DriverInfo, Integer> {
 
-	@Query("select d from DriverInfo d where d.driver_status = ?1")
-    public List<DriverInfo> availableDriver(DriverStatus AVAILABLE);
+	/*
+	 * @Query("select d from DriverInfo d where d.driver_status = ?1") public
+	 * List<DriverInfo> availableDriver(DriverStatus AVAILABLE);
+	 */
 
 	
 }
