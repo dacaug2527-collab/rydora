@@ -6,20 +6,16 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.dto.BookingDTO;
 import com.example.demo.dto.DriverInfoDTO;
 import com.example.demo.entities.DriverInfo;
-import com.example.demo.entities.Users;
 import com.example.demo.repositories.DriverRepository;
 
 @Service
 public class DriverService {
 
 	@Autowired
-	DriverRepository driverRepository;
+	private DriverRepository driverRepository;
 	
 	
 	public List<DriverInfo> getAll(){
@@ -66,12 +62,27 @@ public class DriverService {
 		driver.setDriverLicensePath(didto.getDriverLicensePath());
 		return driverRepository.save(driver);
 	}
+
+	public boolean available(Integer driverId) {
+		DriverInfo d = getOne(driverId);
+		if(d.getDriverStatus()==false) {
+		d.setDriverStatus(true);
+		driverRepository.save(d);
+		return true;
+		}
+		return false;
+		
+	}
+
+	public boolean notAvailable(Integer driverId) {
+		DriverInfo d = getOne(driverId);
+		if(d.getDriverStatus()==true) {
+		d.setDriverStatus(false);
+		driverRepository.save(d);
+		return true;
+		}
+		return false;
+	}
 	
 	
-	//available driver
-	/*
-	 * public List<DriverInfo> availableDriver() {
-	 * 
-	 * return driverrepository.availableDriver(DriverStatus.AVAILABLE); }
-	 */
 }

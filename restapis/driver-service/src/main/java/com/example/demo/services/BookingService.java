@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.BookingDTO;
 import com.example.demo.entities.Booking;
 import com.example.demo.entities.BookingStatus;
+import com.example.demo.entities.DriverInfo;
 import com.example.demo.entities.Users;
 import com.example.demo.repositories.BookingRepository;
 
@@ -19,7 +20,7 @@ import com.example.demo.repositories.BookingRepository;
 public class BookingService {
 
 	@Autowired
-	BookingRepository bookingRepository;
+	private BookingRepository bookingRepository;
 	
 	//get by id
 	public Booking getOneBooking(Integer id) {
@@ -37,8 +38,14 @@ public class BookingService {
 
 	
 	//access booking history
-	public List<BookingDTO> bookingHistory(Integer did) {
-	    List<Booking> bookings = bookingRepository.driverBookingHistory(did);
+	public List<BookingDTO> bookingHistory(Integer userid) {
+		List<DriverInfo> driver = bookingRepository.getDriverId(userid);
+		Integer driverId = 0;
+		for (DriverInfo d : driver) {
+		    driverId = d.getDriverId();
+		}
+		
+	    List<Booking> bookings = bookingRepository.driverBookingHistory(driverId);
 	    List<BookingDTO> bookingDTOs = new ArrayList<>();
 
 	    for (Booking b : bookings) {
@@ -80,6 +87,24 @@ public class BookingService {
 
 	    return bookingDTOs;
 		 
+	}
+
+
+      //acceptBooking
+	public BookingDTO acceptBooking(Integer bookingId) {
+		
+		Booking booking = getOneBooking(bookingId);
+		
+		if(booking.getBookingStatus() == BookingStatus.PENDING) {
+			   
+			   booking.setBookingStatus(BookingStatus.ACCEPTED);
+			   bookingRepository.save(booking);
+			   
+		}
+		BookingDTO bd = new BookingDTO();
+		bd.setBookingId(booking.getBookingId());
+		return bd;
+		
 	}
 }
 

@@ -1,13 +1,11 @@
 package com.example.demo.repositories;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entities.DriverInfo;
-
+import com.example.demo.entities.Payment;
 
 @Repository
-public interface DriverRepository extends JpaRepository<DriverInfo, Integer> {
-	
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
+
 }
