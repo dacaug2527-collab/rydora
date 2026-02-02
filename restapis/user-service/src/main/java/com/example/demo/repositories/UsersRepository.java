@@ -14,17 +14,6 @@ import com.example.demo.entities.Users;
 public interface UsersRepository extends JpaRepository<Users, Integer> {
 	Users findByEmailAndPassword(String email, String password);
 	List<Users> findByRoleId(Integer roleId);
-	/*
-	 * @Query(""" SELECT u FROM Users u JOIN u.driverInfo d WHERE u.roleId = 3 AND
-	 * d.driverId NOT IN ( SELECT b.driver.driverId FROM Booking b WHERE b.startDate
-	 * <= :endDate AND b.endDate >= :startDate ) """) List<Users>
-	 * findAvailableDrivers(
-	 * 
-	 * @Param("startDate") LocalDate startDate,
-	 * 
-	 * @Param("endDate") LocalDate endDate );
-	 */
-
 	
 	@Query("""
 			SELECT DISTINCT u
@@ -41,6 +30,6 @@ public interface UsersRepository extends JpaRepository<Users, Integer> {
 			    @Param("startDate") LocalDate startDate,
 			    @Param("endDate") LocalDate endDate
 			);
-
+ 
 
 }

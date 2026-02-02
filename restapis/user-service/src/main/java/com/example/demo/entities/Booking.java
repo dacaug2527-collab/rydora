@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.example.demo.enums.BookingStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.*;
@@ -37,15 +38,16 @@ public class Booking {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime bookingDateTime;
 
-    @Column(name = "booking_status")
-    private String bookingStatus;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "booking_status", nullable = false)
+    private BookingStatus bookingStatus;
 
-    // ✅ FK → user.user_id (column name user_id1)
+    // FK ---user.user_id (column name user_id1)
     @ManyToOne
     @JoinColumn(name = "user_id1", referencedColumnName = "user_id")
     private Users user;
 
-    // ✅ FK → driver_info.driver_id
+    //FK ---- driver_info.driver_id
     @ManyToOne
     @JoinColumn(name = "driver_id", referencedColumnName = "driver_id")
     private DriverInfo driver;

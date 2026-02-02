@@ -27,13 +27,13 @@ public class DriverInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "driver_id")
     private Integer driverId;
-    //private float rating;
-
-    //private String experience;
+    
     @Column(name = "driving_license")
     private String drivingLicense;
+    
     @Column(name = "driving_license_path")
     private String drivingLicensePath;
+    
     @Column(name = "pan_card")
     private String panCard;
     
