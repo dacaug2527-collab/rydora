@@ -1,0 +1,55 @@
+/.metadata/
+
+# IDE related files and folders (IntelliJ, VS Code, Eclipse, etc.)
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+.metadata/
+target/         # Maven build output directory
+.gradle/        # Gradle files
+build/          # Gradle build output directory
+
+# Spring Boot specific
+*.log
+logs/
+tmp/
+uploads/
+hs_err_pid*.log
+
+# Dependency directories
+node_modules/   # Node.js dependencies
+/target/        # Maven target directory (can be repeated if needed)
+/build/         # Gradle build directory (can be repeated if needed)
+/dist/          # Common distribution directory
+/out/           # Common output directory
+
+# System and OS files
+.DS_Store       # macOS specific
+Thumbs.db       # Windows specific
+
+# React specific (typically found within the React project subdirectory)
+build/          # Create React App (CRA) build directory
+dist/           # Common React build output directory
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+.node_repl_history
+
+# Optional: Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional: if using Docker
+# Dockerfile*.task.data
+# .dockerignore
+# .docker/
