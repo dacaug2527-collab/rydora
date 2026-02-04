@@ -4,7 +4,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import LoginComp from "./components/LoginComp";
 import RegisterComp from "./components/RegisterComp";
 import UserComp from "./components/UserComp";
-import DriverComp from "./components/DriverComp";
+import DriverLayout from "./components/DriverLayout";
 
 function App() {
   return (
@@ -25,7 +25,8 @@ function App() {
         <Route path="/login" element={<LoginComp />} />
         <Route path="/register" element={<RegisterComp />} />
          <Route path="/userComp" element={<UserComp />} />
-         <Route path="/driver" element={<DriverComp />} />
+         <Route path="/driver" element={<DriverLayout />} />
+         
       </Routes>
     </div>
   );
